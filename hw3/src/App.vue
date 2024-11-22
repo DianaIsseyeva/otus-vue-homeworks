@@ -1,7 +1,31 @@
+<template>
+  <div>
+    <div v-if="status===1">
+      <div class="group">
+        <button @click="changeStatus(2)" class="order">Оформить заказ</button>
+        <button @click="changeStatus(3)" class="order">Создать товар</button>
+      </div>
+    <ul>
+      <ProductItem v-for="item in items" :key='item.id' :item='item'/>
+    </ul>
+  </div>
+    <div v-if="status===2">
+      <button @click="changeStatus(1)" class="catalog">В каталог</button>
+      <OrderForm/>
+    </div>
+    <div v-if="status===3">
+      <button @click="changeStatus(1)" class="catalog">В каталог</button>
+      <NewProductForm/>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { onMounted, ref } from 'vue';
+import NewProductForm from './components/NewProductForm.vue';
 import OrderForm from './components/OrderForm.vue';
 import ProductItem from './components/ProductItem.vue';
+
 const items = ref([]);
 
 const fetchData =async()=> {
@@ -20,29 +44,10 @@ onMounted(()=> {
   fetchData()
 })
 const status = ref(1)
-const changeStatus = ()=> {
-  if(status.value === 1) {
-    status.value = 2
-  } else {
-    status.value = 1
-  }
+const changeStatus = (value)=> {
+  status.value = value
 }
 </script>
-
-<template>
-  <div>
-    <div v-if="status===1">
-      <button @click="changeStatus" class="order">Оформить заказ</button>
-    <ul>
-      <ProductItem v-for="item in items" :key='item.id' :item='item'/>
-    </ul>
-  </div>
-    <div v-if="status===2">
-      <button @click="changeStatus" class="catalog">В каталог</button>
-      <OrderForm/>
-    </div>
-  </div>
-</template>
 
 <style scoped>
   ul {

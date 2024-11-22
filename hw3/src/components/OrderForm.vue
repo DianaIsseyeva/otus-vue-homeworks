@@ -1,46 +1,68 @@
 <template>
   <div>
-    <Form :validation-schema="schema" @submit="onSubmit" class="form">
-      <label class="form-label">
+    <Form
+      :validation-schema="schema"
+      @submit="onSubmit"
+      class="form"
+    >
+      <label>
         Имя:
-        <Field name="firstName" class='form-input'/>
+        <Field name="firstName" v-model="form.firstName" placeholder="Введите имя" class="form-input" />
         <ErrorMessage name="firstName" class="error" />
       </label>
 
       <label>
         Фамилия:
-        <Field name="lastName" class='form-input'/>
+        <Field name="lastName" v-model="form.lastName" placeholder="Введите фамилию" class="form-input" />
         <ErrorMessage name="lastName" class="error" />
       </label>
 
       <label>
         Email:
-        <Field name="email" class='form-input'/>
+        <Field name="email" v-model="form.email" placeholder="Введите email" class="form-input" />
         <ErrorMessage name="email" class="error" />
       </label>
 
       <label>
         Мобильный номер:
-        <Field name="phone" class='form-input'/>
+        <Field name="phone" v-model="form.phone" placeholder="Введите номер телефона" class="form-input" />
         <ErrorMessage name="phone" class="error" />
       </label>
 
-      <label>
-        Адрес:
-        <Field name="address" class='form-input'/>
-        <ErrorMessage name="address" class="error" />
-      </label>
+      <div>
+        <h4>Адрес</h4>
+        <label>
+          Город:
+          <Field name="address.city" v-model="form.address.city" placeholder="Введите город" class="form-input" />
+          <ErrorMessage name="address.city" class="error" />
+        </label>
+        <label>
+          Улица:
+          <Field name="address.street" v-model="form.address.street" placeholder="Введите улицу" class="form-input" />
+          <ErrorMessage name="address.street" class="error" />
+        </label>
+        <label>
+          Дом:
+          <Field name="address.house" v-model="form.address.house" placeholder="Введите номер дома" class="form-input" />
+          <ErrorMessage name="address.house" class="error" />
+        </label>
+        <label>
+          Квартира:
+          <Field name="address.apartment" v-model="form.address.apartment" placeholder="Введите номер квартиры" class="form-input" />
+          <ErrorMessage name="address.apartment" class="error" />
+        </label>
+      </div>
 
       <div>
         <h4 class="title">Доставка</h4>
         <label>
-          <Field name="delivery" type="radio" value="pickup" class='form-radio'/> Самовывоз
+          <Field type="radio" name="delivery" value="pickup" class="form-radio" /> Самовывоз
         </label>
         <label>
-          <Field name="delivery" type="radio" value="courier" class='form-radio'/> Курьер
+          <Field type="radio" name="delivery" value="courier" class="form-radio" /> Курьер
         </label>
         <label>
-          <Field name="delivery" type="radio" value="post" class='form-radio'/> Почта
+          <Field type="radio" name="delivery" value="post" class="form-radio" /> Почта
         </label>
         <ErrorMessage name="delivery" class="error" />
       </div>
@@ -48,105 +70,95 @@
       <div>
         <h4 class="title">Оплата</h4>
         <label>
-          <Field name="payment" type="radio" value="offline" class='form-radio'/> При получении
+          <Field type="radio" name="payment" value="offline" class="form-radio" /> При получении
         </label>
         <label>
-          <Field name="payment" type="radio" value="online" class='form-radio'/> Предоплата
+          <Field type="radio" name="payment" value="online" class="form-radio" /> Предоплата
         </label>
         <ErrorMessage name="payment" class="error" />
       </div>
 
       <div>
         <label>
-          <Field name="agreement" type="checkbox" class='form-checkbox'/> Согласен с правилами обработки заказов
+          <Field type="checkbox" name="agreement" class="form-checkbox" :value="true" :unchecked-value="false" />
+          Согласен с правилами обработки заказов
         </label>
         <ErrorMessage name="agreement" class="error" />
       </div>
 
-      <button type="submit" class="submit">Submit</button>
+      <button type="submit" class="submit">Оформить заказ</button>
     </Form>
   </div>
 </template>
 
-<script setup>
-import { ErrorMessage, Field, Form } from 'vee-validate';
-import * as yup from 'yup';
 
-// Определение схемы валидации с добавлением правила для agreement
+<script setup>
+import { ErrorMessage, Field, Form } from "vee-validate";
+import * as yup from "yup";
+
+const form = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  address: {
+    city: "",
+    street: "",
+    house: "",
+    apartment: "",
+  },
+  delivery: "",
+  payment: "",
+  agreement: false,
+};
+
 const schema = yup.object({
   firstName: yup.string().required("Введите имя"),
   lastName: yup.string().required("Введите фамилию"),
-  email: yup.string().required("Введите email").email("Введите корректный email"),
-  phone: yup.string()
-    .required("Введите телефон")
+  email: yup.string().email("Введите корректный email").required("Введите email"),
+  phone: yup
+    .string()
     .matches(/^\d+$/, "Телефон должен содержать только цифры")
-    .min(10, "Минимальная длина телефона 10 символов"),
-  address: yup.string().required("Введите адрес"),
+    .min(10, "Минимальная длина телефона 10 символов")
+    .required("Введите телефон"),
+  address: yup.object({
+    city: yup.string().required("Введите город"),
+    street: yup.string().required("Введите улицу"),
+    house: yup.string().required("Введите номер дома"),
+    apartment: yup.string().required("Введите номер квартиры"),
+  }),
   delivery: yup.string().required("Выберите способ доставки"),
   payment: yup.string().required("Выберите способ оплаты"),
-  agreement: yup.boolean()
+  agreement: yup
+    .boolean()
     .oneOf([true], "Вы должны согласиться с правилами обработки заказов")
-    .required("Вы должны согласиться с правилами обработки заказов"),
+    .required("Вы должны согласиться"),
 });
 
-// Обработчик отправки формы
-function onSubmit(values) {
-  console.log("Форма отправлена:", JSON.stringify(values, null, 2));
-  // Здесь вы можете добавить логику отправки данных на сервер
-}
+const onSubmit = async (values) => {
+  console.log("Отправка формы:", values);
+
+  try {
+    const response = await fetch("https://httpbin.org/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+
+    if (response.ok) {
+      alert("Заказ успешно оформлен!");
+    } else {
+      alert("Произошла ошибка при отправке заказа.");
+    }
+  } catch (error) {
+    console.error("Ошибка при запросе:", error);
+    alert("Произошла ошибка.");
+  }
+};
 </script>
 
-<style scoped>
-.form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
+<style>
 
-label {
-  margin-bottom: 15px;
-}
-
-.submit {
-  border-radius: 20px;
-  background: rgb(9, 216, 9);
-  margin-top: 20px;
-  padding: 10px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  max-width: 200px;
-  min-width: 200px;
-  align-self: center;
-}
-
-.form-input {
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-top: 5px;
-}
-
-.form-radio {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.form-checkbox {
-  margin-top: 20px;
-  width: 15px;
-  height: 15px;
-}
-
-.title {
-  margin-bottom: 10px;
-}
-
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
 </style>
