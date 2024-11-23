@@ -2,9 +2,9 @@
   <li class="item">
     <img :src="item.image" :alt="item.title" class="image"/>
     <h5>{{ item.title }}</h5>
-    <p>price: {{ item.price }}</p>
-    <p>rate: {{ item.rating.rate }}</p>
-    <p>count: {{ item.rating.count }}</p>
+    <p>Цена: {{ item.price }}</p>
+    <p>Рейтинг: {{ item.rating.rate }}</p>
+    <p>Количество: {{ item.rating.count }}</p>
   </li>
 </template>
 

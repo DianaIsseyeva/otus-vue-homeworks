@@ -1,12 +1,13 @@
 <template>
   <div>
+    <Search @simple-search='handleSearch'/>
     <div v-if="status===1">
       <div class="group">
         <button @click="changeStatus(2)" class="order">Оформить заказ</button>
         <button @click="changeStatus(3)" class="order">Создать товар</button>
       </div>
     <ul>
-      <ProductItem v-for="item in items" :key='item.id' :item='item'/>
+      <ProductItem v-for="item in filteredItems" :key='item.id' :item='item'/>
     </ul>
   </div>
     <div v-if="status===2">
@@ -21,12 +22,15 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import NewProductForm from './components/NewProductForm.vue';
 import OrderForm from './components/OrderForm.vue';
 import ProductItem from './components/ProductItem.vue';
+import Search from './components/Search.vue';
 
 const items = ref([]);
+const status = ref(1);
+const filter = ref('');
 
 const fetchData =async()=> {
   try {
@@ -43,10 +47,19 @@ const fetchData =async()=> {
 onMounted(()=> {
   fetchData()
 })
-const status = ref(1)
+
 const changeStatus = (value)=> {
   status.value = value
 }
+const filteredItems = computed(() => {
+  return items.value.filter(item =>
+    item.title.toLowerCase().includes(filter.value.toLowerCase())
+  );
+});
+const handleSearch=(value)=> {
+  filter.value = value
+}
+
 </script>
 
 <style scoped>
