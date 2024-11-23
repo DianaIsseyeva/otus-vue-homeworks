@@ -67,40 +67,5 @@ function onSubmit(values) {
 </script>
 
 <style >
-/* .form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
 
-label {
-  margin-bottom: 15px;
-}
-
-.form-input {
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 16px;
-  line-height: 24px;
-  margin-top: 5px;
-  width: 300px;
-  display: inline-block;
-  border: 1px solid grey
-}
-
-.submit {
-  border-radius: 20px;
-  background: rgb(9, 216, 9);
-  margin-top: 20px;
-  padding: 10px;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-} */
 </style>

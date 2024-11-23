@@ -1,7 +1,8 @@
 <template>
   <div>
-    <Search @simple-search='handleSearch'/>
     <div v-if="status===1">
+      <Search @simple-search='handleSearch'/>
+      <DetailSearch @detail-search='handleDetailSearch' />
       <div class="group">
         <button @click="changeStatus(2)" class="order">Оформить заказ</button>
         <button @click="changeStatus(3)" class="order">Создать товар</button>
@@ -22,21 +23,22 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import DetailSearch from './components/DetailSearch.vue';
 import NewProductForm from './components/NewProductForm.vue';
 import OrderForm from './components/OrderForm.vue';
 import ProductItem from './components/ProductItem.vue';
 import Search from './components/Search.vue';
 
-const items = ref([]);
 const status = ref(1);
 const filter = ref('');
-
+const filterQuery = ref({})
+const filteredItems = ref([]);
 const fetchData =async()=> {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
     if (response.ok) {
-      items.value = await response.json();
+      filteredItems.value = await response.json();
     } else {
       console.error('Ошибка сети:', response.status);
     }
@@ -51,15 +53,45 @@ onMounted(()=> {
 const changeStatus = (value)=> {
   status.value = value
 }
-const filteredItems = computed(() => {
-  return items.value.filter(item =>
-    item.title.toLowerCase().includes(filter.value.toLowerCase())
-  );
-});
-const handleSearch=(value)=> {
-  filter.value = value
-}
+const handleSearch = (value) => {
+  filter.value = value;
+  applyFilters();
+};
 
+const handleDetailSearch = (searchQuery) => {
+  filterQuery.value = searchQuery;
+  applyFilters();
+};
+
+const applyFilters = () => {
+  const { title = '', minPrice = null, maxPrice = null } = filterQuery.value;
+  if (!filter.value && !title && minPrice === null && maxPrice === null) {
+    fetchData();
+    return;
+  }
+  const filteredByName = title
+    ? filteredItems.value.filter((item) =>
+        item.title.toLowerCase().includes(title.toLowerCase())
+      )
+    : filteredItems.value;
+
+    filteredItems.value = filteredByName.filter((item) => {
+    const price = parseFloat(item.price);
+
+    const isInRange =
+      (minPrice === null || price >= minPrice) &&
+      (maxPrice === null || price <= maxPrice);
+
+    return isInRange;
+});
+
+
+  if (filter.value) {
+    filteredItems.value = filteredItems.value.filter((item) =>
+      item.title.toLowerCase().includes(filter.value.toLowerCase())
+    );
+  }
+}
 </script>
 
 <style scoped>
