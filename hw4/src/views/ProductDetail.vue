@@ -8,6 +8,7 @@
       <p class="product-rating">Рейтинг: <span>{{ product.rating.rate }}</span></p>
       <p class="product-stock">Количество: <span>{{ product.rating.count }}</span></p>
     </div>
+    <button @click="handleAddToCart">Добавить в корзину</button>
   </div>
   <div v-else class="loading-container">
     <p class="loading-text">Загрузка...</p>
@@ -17,7 +18,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-
+import cart from '@/cart';
 const route = useRoute();
 const product = ref(null);
 
@@ -33,7 +34,10 @@ const fetchProduct = async (id) => {
     console.error('Ошибка при получении данных:', error);
   }
 };
-
+function handleAddToCart() {
+  cart.addToCart(product.value)
+  alert('Товар добавлен в корзину!');
+}
 onMounted(() => {
   const productId = route.params.productId;
   fetchProduct(productId);
