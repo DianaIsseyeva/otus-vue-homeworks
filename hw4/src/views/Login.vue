@@ -32,7 +32,7 @@ const schema = yup.object({
 
 function onSubmit(values) {
   localStorage.setItem("isAuthorized", "true");
-  router.push({ name: "create-products" });
+  router.push({ name: "create-product" });
 }
 </script>
 

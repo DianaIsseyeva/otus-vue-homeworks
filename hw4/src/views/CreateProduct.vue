@@ -54,5 +54,14 @@ const onSubmit =(values)=> {
 </script>
 
 <style>
-
+.form {
+  background-color: #494953;
+  padding: 60px 80px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  margin: 50px auto;
+  font-family: 'Roboto', sans-serif;
+  color: #f0f0f0;
+}
 </style>

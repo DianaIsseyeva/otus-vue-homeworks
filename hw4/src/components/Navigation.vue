@@ -7,6 +7,9 @@
       <li>
         <router-link :to="{ name: 'login' }">Login</router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'create-product' }">Ceate Product</router-link>
+      </li>
     </ul>
   </nav>
 </template>
