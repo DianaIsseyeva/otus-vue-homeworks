@@ -9,15 +9,16 @@ const router = createRouter({
       component: () => import('../views/Home.vue'),
     },
     {
-      path: '/catalog',
-      name: 'catalog',
-      component: () => import('../views/Catalog.vue'),
-    },
-    {
-      path: '/catalog/:productId',
+      path: '/:productId',
       name: 'product',
       props: true,
       component: () => import('../views/ProductDetail.vue'),
+    },
+    {
+      path: '/login',
+      name: 'login',
+      props: true,
+      component: () => import('../views/Login.vue'),
     },
   ],
   scrollBehavior: () => ({ top: 0 }),
