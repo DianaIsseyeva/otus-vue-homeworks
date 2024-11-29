@@ -13,31 +13,15 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 import ProductItem from '../components/ProductItem.vue';
+import { useCatalog } from '../composable/useCatalog';
 
 const router = useRouter();
-const filteredItems = ref([]);
 
-const fetchData = async () => {
-  try {
-    const response = await fetch("https://fakestoreapi.com/products");
-    if (response.ok) {
-      filteredItems.value = await response.json();
-    } else {
-      console.error('Ошибка сети:', response.status);
-    }
-  } catch (error) {
-    console.error('Ошибка при получении данных:', error);
-  }
-};
+const { filteredItems } = useCatalog();
 
-onMounted(() => {
-  fetchData();
-});
-
-const goToProduct = (productId) => {
+const goToProduct = productId => {
   router.push({ name: 'product', params: { productId } });
 };
 </script>

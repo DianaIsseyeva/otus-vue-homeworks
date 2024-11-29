@@ -32,11 +32,13 @@ const totalPrice = computed(() => {
   return cartState.items.reduce((total, item) => total + item.price * item.quantity, 0);
 });
 
-export default {
-  cartState,
-  addToCart,
-  removeFromCart,
-  removeAllFromCart,
-  totalQuantity,
-  totalPrice,
-};
+export function useCart() {
+  return {
+    cartState,
+    addToCart,
+    removeFromCart,
+    removeAllFromCart,
+    totalQuantity,
+    totalPrice,
+  };
+}

@@ -7,8 +7,8 @@
       <p class="product-price">Цена: <span>{{ product.price }} $</span></p>
       <p class="product-rating">Рейтинг: <span>{{ product.rating.rate }}</span></p>
       <p class="product-stock">Количество: <span>{{ product.rating.count }}</span></p>
+      <button @click="addToCart(product)" class='btn'>В корзину</button>
     </div>
-    <button @click="handleAddToCart">Добавить в корзину</button>
   </div>
   <div v-else class="loading-container">
     <p class="loading-text">Загрузка...</p>
@@ -18,10 +18,11 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import cart from '@/cart';
+import { useCart } from '../composable/useCart';
+
 const route = useRoute();
 const product = ref(null);
-
+const {addToCart} = useCart()
 const fetchProduct = async (id) => {
   try {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -34,10 +35,7 @@ const fetchProduct = async (id) => {
     console.error('Ошибка при получении данных:', error);
   }
 };
-function handleAddToCart() {
-  cart.addToCart(product.value)
-  alert('Товар добавлен в корзину!');
-}
+
 onMounted(() => {
   const productId = route.params.productId;
   fetchProduct(productId);
@@ -121,5 +119,12 @@ onMounted(() => {
   50% {
     opacity: 0.5;
   }
+}
+
+.btn{
+  margin-top: 30px;
+  display: flex;
+  justify-self: end;
+  background: rgb(60, 229, 60);
 }
 </style>
