@@ -10,6 +10,9 @@
       <li>
         <router-link :to="{ name: 'create-product' }">Ceate Product</router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'cart' }"><i class="fas fa-shopping-cart"></i></router-link>
+      </li>
     </ul>
   </nav>
 </template>

@@ -30,6 +30,18 @@ const router = createRouter({
       component: () => import('../views/Login.vue'),
       meta: { requiresAuth: false },
     },
+    {
+      path: '/cart',
+      name: 'cart',
+      props: true,
+      component: () => import('../views/Cart.vue'),
+      meta: { requiresAuth: false },
+    },
+    {
+      path: '/checkout',
+      name: 'Checkout',
+      component: () => import('../views/Checkout.vue'),
+    },
   ],
   scrollBehavior: () => ({ top: 0 }),
 });
