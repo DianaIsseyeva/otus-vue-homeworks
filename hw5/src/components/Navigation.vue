@@ -1,23 +1,31 @@
 <template>
-  <nav>
-    <ul>
-      <li>
-        <router-link :to="{ name: 'home' }">Home</router-link>
-      </li>
-      <li>
-        <router-link :to="{ name: 'login' }">Login</router-link>
-      </li>
-      <li>
-        <router-link :to="{ name: 'create-product' }">Ceate Product</router-link>
-      </li>
-      <li>
-        <router-link :to="{ name: 'cart' }"><i class="fas fa-shopping-cart"></i></router-link>
-      </li>
-    </ul>
-  </nav>
+  <div>
+    <nav>
+      <ul>
+        <li>
+          <router-link :to="{ name: 'home' }">Home</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'login' }">Login</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'create-product' }">Ceate Product</router-link>
+        </li>
+        <li>
+          <router-link :to="{ name: 'cart' }"><i class="fas fa-shopping-cart"></i></router-link>
+        </li>
+        <p v-if="user.login">hi, {{user.login}}</p>
+        <button v-if="user.login">logout</button>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+const store = useStore()
+const user = computed(()=> store.getters.user)
 </script>
 
 <style scoped>
@@ -65,5 +73,10 @@ a:active {
 body {
   margin: 0;
   padding-top: 60px;
+}
+
+p {
+  color: rgb(136, 255, 0);
+  margin-right: 10px;
 }
 </style>

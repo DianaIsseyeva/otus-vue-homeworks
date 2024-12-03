@@ -21,8 +21,13 @@
 <script setup>
 import { ErrorMessage, Field, Form } from 'vee-validate';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 import * as yup from 'yup';
+const store = useStore()
 
+const saveUser = (user) => {
+  store.commit('SET_USER', user);
+};
 const router = useRouter();
 
 const schema = yup.object({
@@ -32,7 +37,8 @@ const schema = yup.object({
 
 function onSubmit(values) {
   localStorage.setItem("isAuthorized", "true");
-  router.push({ name: "create-product" });
+  saveUser(values)
+  router.push({ name: "home" });
 }
 </script>
 
