@@ -12,8 +12,6 @@ describe('fetchProducts action (full store)', () => {
     axios.get.mockResolvedValue({ data: productsMock });
 
     const store = createStore({
-      // Важно: сюда нужно поместить ваши state, mutations, actions,
-      // если они недоступны напрямую, их нужно импортировать из отдельного файла.
       state: {
         products: [],
         product: {},
