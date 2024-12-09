@@ -1,9 +1,8 @@
-// tests/unit/LoginForm.spec.js
 import { mount } from '@vue/test-utils';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryHistory, createRouter } from 'vue-router';
 import { createStore } from 'vuex';
-import LoginForm from '../src/views/Login.vue'; // Замените на актуальный путь к вашему компоненту
+import LoginForm from '../src/views/Login.vue';
 
 // Мокаем компоненты vee-validate
 vi.mock('vee-validate', () => ({
