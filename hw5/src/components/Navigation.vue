@@ -3,19 +3,22 @@
     <nav>
       <ul>
         <li>
-          <router-link :to="{ name: 'home' }">Home</router-link>
+          <router-link :to="{ name: 'home' }" data-testid="nav-home">Home</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'login' }">Login</router-link>
+          <router-link :to="{ name: 'login' }" data-testid="nav-login">Login</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'create-product' }">Ceate Product</router-link>
+          <router-link :to="{ name: 'create-product' }" data-testid="nav-create-product">Create Product</router-link>
         </li>
         <li>
-          <router-link :to="{ name: 'cart' }"><i class="fas fa-shopping-cart"></i></router-link>
+          <router-link :to="{ name: 'cart' }" data-testid="nav-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span v-if="totalQuantity > 0" data-testid="cart-count" class="cart-count">{{ totalQuantity }}</span>
+          </router-link>
         </li>
-        <p v-if="user.login">hi, {{user.login}}</p>
-        <button v-if="user.login">logout</button>
+        <p v-if="user.login" data-testid="nav-user-greeting">hi, {{ user.login }}</p>
+        <button v-if="user.login" data-testid="nav-logout-button">logout</button>
       </ul>
     </nav>
   </div>
@@ -26,6 +29,7 @@ import { computed } from 'vue';
 import { useStore } from 'vuex';
 const store = useStore()
 const user = computed(()=> store.getters.user)
+const totalQuantity = computed(() => store.getters.totalQuantity);
 </script>
 
 <style scoped>

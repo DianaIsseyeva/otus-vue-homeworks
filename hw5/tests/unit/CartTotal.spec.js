@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { createStore } from 'vuex';
-import CartComponent from '../src/views/Cart.vue';
+import CartComponent from '../../src/views/Cart.vue';
 
 describe('CartComponent - Расчет суммы в корзине с изменениями количества товара', () => {
   let store;

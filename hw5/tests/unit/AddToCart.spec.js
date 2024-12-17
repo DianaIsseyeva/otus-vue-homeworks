@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createStore } from 'vuex';
-import ProductComponent from '../src/views/ProductDetail.vue';
+import ProductComponent from '../../src/views/ProductDetail.vue';
 
 // Мокируем useRoute из 'vue-router'
 vi.mock('vue-router', () => ({

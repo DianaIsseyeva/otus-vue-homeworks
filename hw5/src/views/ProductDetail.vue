@@ -5,9 +5,9 @@
       <h2 class="product-title">{{ product.title }}</h2>
       <p class="product-description">{{ product.description }}</p>
       <p class="product-price">Цена: <span>{{ product.price }} $</span></p>
-      <p  v-if="product.rating" class="product-rating">Рейтинг: <span>{{ product.rating.rate }}</span></p>
+      <p v-if="product.rating" class="product-rating">Рейтинг: <span>{{ product.rating.rate }}</span></p>
       <p v-if="product.rating" class="product-stock">Количество: <span>{{ product.rating.count }}</span></p>
-      <button @click="addToCart(product)" class='btn'>В корзину</button>
+      <button @click="addToCart(product)" class="btn" data-testid="add-to-cart-button">В корзину</button>
     </div>
   </div>
   <div v-else class="loading-container">

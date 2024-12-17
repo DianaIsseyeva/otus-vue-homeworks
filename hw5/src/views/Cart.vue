@@ -14,35 +14,39 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in cart" :key="item.id">
+          <tr v-for="item in cart" :key="item.id" data-testid="cart-item">
             <td class="product-info">
               <img :src="item.image" alt="Product Image" class="product-image" />
               <span>{{ item.title }}</span>
             </td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.price.toLocaleString() }} $.</td>
-            <td>{{ (item.price * item.quantity).toLocaleString() }} $.</td>
             <td>
-              <button @click="removeFromCart(item.id)" class="remove-button">Удалить</button>
+              {{ item.quantity }}
+            </td>
+            <td>{{ item.price?.toLocaleString() }} $.</td>
+            <td>{{ (item.price * item.quantity)?.toLocaleString() }} $.</td>
+            <td>
+              <button @click="removeFromCart(item.id)" class="remove-button" data-testid="remove-button">
+                Удалить
+              </button>
             </td>
           </tr>
         </tbody>
       </table>
 
       <div class="cart-summary">
-        <p>Всего товаров: <strong>{{ totalQuantity }}</strong></p>
-        <p>Итого: <strong>{{ totalPrice.toLocaleString() }} $.</strong></p>
+        <p>Всего товаров: <strong data-testid="total-quantity">{{ totalQuantity }}</strong></p>
+        <p>Итого: <strong data-testid="total-price">{{ totalPrice?.toLocaleString() }} $.</strong></p>
       </div>
 
-      <div class="cart-actions">
-        <button @click="clearCart" class="clear-button">Очистить корзину</button>
-        <button @click="goToOrder" class="order-button">Оформить заказ</button>
+      <div v-if="cart.length > 0"  class="cart-actions">
+        <button @click="clearCart" class="clear-button" data-testid="clear-cart-button">Очистить корзину</button>
+        <button @click="goToOrder" class="order-button" data-testid="checkout-button">Оформить заказ</button>
       </div>
     </div>
 
-    <div v-else class="empty-cart">
+    <div v-else class="empty-cart" data-testid="empty-cart">
       <p>Ваша корзина пуста.</p>
-      <router-link to="/" class="continue-shopping">Продолжить покупки</router-link>
+      <router-link to="/" class="continue-shopping" data-testid="continue-shopping-link">Продолжить покупки</router-link>
     </div>
   </div>
 </template>
@@ -65,7 +69,7 @@ const clearCart = () => {
 };
 
 const goToOrder = () => {
-  router.push({ name: 'Checkout' });
+  router.push({ name: 'checkout' });
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="handleSubmit" class="form">
+  <form @submit.prevent="handleSubmit" class="form" data-testid="checkout-form">
     <!-- Раздел данных покупателя и адреса -->
     <div class="form-section">
       <!-- Данные покупателя -->
@@ -16,10 +16,11 @@
             @input="clearError('firstName')"
             placeholder="Введите имя"
             class="form-input"
+            data-testid="checkout-firstName"
           />
-          <span v-if="errors.firstName" class="error">{{
-            errors.firstName
-          }}</span>
+          <span v-if="errors.firstName" class="error" data-testid="checkout-firstName-error">
+            {{ errors.firstName }}
+          </span>
         </div>
 
         <!-- Фамилия -->
@@ -32,10 +33,11 @@
             @input="clearError('lastName')"
             placeholder="Введите фамилию"
             class="form-input"
+            data-testid="checkout-lastName"
           />
-          <span v-if="errors.lastName" class="error">{{
-            errors.lastName
-          }}</span>
+          <span v-if="errors.lastName" class="error" data-testid="checkout-lastName-error">
+            {{ errors.lastName }}
+          </span>
         </div>
 
         <!-- Email -->
@@ -48,8 +50,11 @@
             @input="clearError('email')"
             placeholder="Введите email"
             class="form-input"
+            data-testid="checkout-email"
           />
-          <span v-if="errors.email" class="error">{{ errors.email }}</span>
+          <span v-if="errors.email" class="error" data-testid="checkout-email-error">
+            {{ errors.email }}
+          </span>
         </div>
 
         <!-- Мобильный номер -->
@@ -62,8 +67,11 @@
             @input="clearError('phone')"
             placeholder="Введите номер телефона"
             class="form-input"
+            data-testid="checkout-phone"
           />
-          <span v-if="errors.phone" class="error">{{ errors.phone }}</span>
+          <span v-if="errors.phone" class="error" data-testid="checkout-phone-error">
+            {{ errors.phone }}
+          </span>
         </div>
       </div>
 
@@ -81,10 +89,11 @@
             @input="clearNestedError('address', 'city')"
             placeholder="Введите город"
             class="form-input"
+            data-testid="checkout-city"
           />
-          <span v-if="errors.address.city" class="error">{{
-            errors.address.city
-          }}</span>
+          <span v-if="errors.address.city" class="error" data-testid="checkout-city-error">
+            {{ errors.address.city }}
+          </span>
         </div>
 
         <!-- Улица -->
@@ -97,10 +106,11 @@
             @input="clearNestedError('address', 'street')"
             placeholder="Введите улицу"
             class="form-input"
+            data-testid="checkout-street"
           />
-          <span v-if="errors.address.street" class="error">{{
-            errors.address.street
-          }}</span>
+          <span v-if="errors.address.street" class="error" data-testid="checkout-street-error">
+            {{ errors.address.street }}
+          </span>
         </div>
 
         <!-- Дом -->
@@ -113,10 +123,11 @@
             @input="clearNestedError('address', 'house')"
             placeholder="Введите номер дома"
             class="form-input"
+            data-testid="checkout-house"
           />
-          <span v-if="errors.address.house" class="error">{{
-            errors.address.house
-          }}</span>
+          <span v-if="errors.address.house" class="error" data-testid="checkout-house-error">
+            {{ errors.address.house }}
+          </span>
         </div>
 
         <!-- Квартира -->
@@ -129,10 +140,11 @@
             @input="clearNestedError('address', 'apartment')"
             placeholder="Введите номер квартиры"
             class="form-input"
+            data-testid="checkout-apartment"
           />
-          <span v-if="errors.address.apartment" class="error">{{
-            errors.address.apartment
-          }}</span>
+          <span v-if="errors.address.apartment" class="error" data-testid="checkout-apartment-error">
+            {{ errors.address.apartment }}
+          </span>
         </div>
       </div>
     </div>
@@ -151,6 +163,7 @@
               v-model="form.delivery"
               @change="clearError('delivery')"
               class="form-radio"
+              data-testid="checkout-delivery-pickup"
             />
             Самовывоз
           </label>
@@ -162,6 +175,7 @@
               v-model="form.delivery"
               @change="clearError('delivery')"
               class="form-radio"
+              data-testid="checkout-delivery-courier"
             />
             Курьер
           </label>
@@ -173,11 +187,14 @@
               v-model="form.delivery"
               @change="clearError('delivery')"
               class="form-radio"
+              data-testid="checkout-delivery-post"
             />
             Почта
           </label>
         </div>
-        <span v-if="errors.delivery" class="error">{{ errors.delivery }}</span>
+        <span v-if="errors.delivery" class="error" data-testid="checkout-delivery-error">
+          {{ errors.delivery }}
+        </span>
       </div>
 
       <!-- Оплата -->
@@ -192,6 +209,7 @@
               v-model="form.payment"
               @change="handlePaymentChange"
               class="form-radio"
+              data-testid="checkout-payment-offline"
             />
             При получении
           </label>
@@ -203,11 +221,14 @@
               v-model="form.payment"
               @change="handlePaymentChange"
               class="form-radio"
+              data-testid="checkout-payment-online"
             />
             Предоплата
           </label>
         </div>
-        <span v-if="errors.payment" class="error">{{ errors.payment }}</span>
+        <span v-if="errors.payment" class="error" data-testid="checkout-payment-error">
+          {{ errors.payment }}
+        </span>
       </div>
 
       <!-- Согласие с правилами -->
@@ -218,12 +239,13 @@
             v-model="form.agreement"
             @change="clearError('agreement')"
             class="form-checkbox"
+            data-testid="checkout-agreement"
           />
           Согласен с правилами обработки заказов
         </label>
-        <span v-if="errors.agreement" class="error">{{
-          errors.agreement
-        }}</span>
+        <span v-if="errors.agreement" class="error" data-testid="checkout-agreement-error">
+          {{ errors.agreement }}
+        </span>
       </div>
     </div>
 
@@ -241,10 +263,11 @@
           @input="clearError('cardHolder')"
           placeholder="Введите имя владельца"
           class="form-input"
+          data-testid="checkout-cardHolder"
         />
-        <span v-if="errors.cardHolder" class="error">{{
-          errors.cardHolder
-        }}</span>
+        <span v-if="errors.cardHolder" class="error" data-testid="checkout-cardHolder-error">
+          {{ errors.cardHolder }}
+        </span>
       </div>
 
       <!-- Номер карты -->
@@ -257,10 +280,11 @@
           @input="clearError('cardNumber')"
           placeholder="Введите номер карты"
           class="form-input"
+          data-testid="checkout-cardNumber"
         />
-        <span v-if="errors.cardNumber" class="error">{{
-          errors.cardNumber
-        }}</span>
+        <span v-if="errors.cardNumber" class="error" data-testid="checkout-cardNumber-error">
+          {{ errors.cardNumber }}
+        </span>
       </div>
 
       <!-- Дата окончания -->
@@ -273,10 +297,11 @@
           @input="clearError('expiryDate')"
           placeholder="Введите дату окончания"
           class="form-input"
+          data-testid="checkout-expiryDate"
         />
-        <span v-if="errors.expiryDate" class="error">{{
-          errors.expiryDate
-        }}</span>
+        <span v-if="errors.expiryDate" class="error" data-testid="checkout-expiryDate-error">
+          {{ errors.expiryDate }}
+        </span>
       </div>
 
       <!-- CVC/CVV -->
@@ -289,20 +314,26 @@
           @input="clearError('cvc')"
           placeholder="Введите CVC"
           class="form-input"
+          data-testid="checkout-cvc"
         />
-        <span v-if="errors.cvc" class="error">{{ errors.cvc }}</span>
+        <span v-if="errors.cvc" class="error" data-testid="checkout-cvc-error">
+          {{ errors.cvc }}
+        </span>
       </div>
     </div>
 
     <!-- Кнопка отправки -->
-    <button type="submit" class="submit">Оформить заказ</button>
+    <button type="submit" class="submit" data-testid="checkout-submit">Оформить заказ</button>
   </form>
 </template>
 
 <script setup>
 import { reactive } from "vue";
+import { useRouter } from 'vue-router';
 import { useStore } from "vuex";
 import * as yup from "yup";
+const router = useRouter();
+
 const store = useStore();
 const clearCart = () => {
       store.commit("CLEAR_CART");
@@ -506,6 +537,7 @@ const handleSubmit = async () => {
     });
     alert("Заказ успешно оформлен!");
     clearCart()
+
     // Очистка формы
     Object.assign(form, {
       firstName: "",
@@ -526,6 +558,8 @@ const handleSubmit = async () => {
       expiryDate: "",
       cvc: "",
     });
+ router.push('/');
+
   } catch (validationErrors) {
     if (validationErrors.inner) {
       validationErrors.inner.forEach((error) => {
@@ -539,6 +573,7 @@ const handleSubmit = async () => {
         }
       });
     }
+
   }
 };
 
