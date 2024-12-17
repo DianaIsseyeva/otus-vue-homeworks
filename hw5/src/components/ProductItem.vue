@@ -1,5 +1,5 @@
 <template>
-  <li class="item">
+  <li class="item" :data-testid="`product-item-${item.id}`">
     <img :src="item.image" :alt="item.title" class="image"/>
     <h5>{{ item.title }}</h5>
     <p>Цена: {{ item.price }}</p>
@@ -29,6 +29,7 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 .image {
   width: 250px;

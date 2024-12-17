@@ -1,19 +1,19 @@
 <template>
   <div class="form-container">
-    <Form :validation-schema="schema" @submit="onSubmit" class="form">
+    <Form :validation-schema="schema" @submit="onSubmit" class="form" data-testid="login-form">
       <div class="form-group">
         <label for="login" class="form-label">Логин:</label>
-        <Field name="login" id="login" placeholder="Введите логин" class="form-input" />
-        <ErrorMessage name="login" class="error" />
+        <Field name="login" id="login" placeholder="Введите логин" class="form-input" data-testid="login-input"/>
+        <ErrorMessage name="login" class="error" data-testid="login-error"/>
       </div>
 
       <div class="form-group">
         <label for="password" class="form-label">Пароль:</label>
-        <Field name="password" id="password" type="password" placeholder="Введите пароль" class="form-input" />
-        <ErrorMessage name="password" class="error" />
+        <Field name="password" id="password" type="password" placeholder="Введите пароль" class="form-input" data-testid="password-input"/>
+        <ErrorMessage name="password" class="error" data-testid="password-error"/>
       </div>
 
-      <button type="submit" class="submit">Войти</button>
+      <button type="submit" class="submit" data-testid="login-submit">Войти</button>
     </Form>
   </div>
 </template>

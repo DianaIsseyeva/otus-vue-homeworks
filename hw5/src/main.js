@@ -6,7 +6,7 @@ import './style.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
 const app = createApp(App);
-
+store.dispatch('initializeCart');
 app.use(router);
 app.use(store);
 
