@@ -30,18 +30,24 @@ export default createStore({
       } else {
         state.cart.push({ ...product, quantity: 1 });
       }
+      localStorage.setItem('cart', JSON.stringify(state.cart)); // Сохранение корзины
     },
     REMOVE_PRODUCT_FROM_CART(state, productId) {
       const index = state.cart.findIndex(item => item.id === productId);
       if (index !== -1) {
         state.cart.splice(index, 1);
       }
+      localStorage.setItem('cart', JSON.stringify(state.cart)); // Сохранение корзины
     },
     CLEAR_CART(state) {
       state.cart = [];
+      localStorage.removeItem('cart'); // Очистка localStorage
     },
-    SET_USER(state, user) {
-      state.user = user;
+    LOAD_CART_FROM_LOCAL_STORAGE(state) {
+      const savedCart = localStorage.getItem('cart');
+      if (savedCart) {
+        state.cart = JSON.parse(savedCart);
+      }
     },
   },
   actions: {
@@ -60,6 +66,9 @@ export default createStore({
       } catch (error) {
         console.log(error);
       }
+    },
+    initializeCart({ commit }) {
+      commit('LOAD_CART_FROM_LOCAL_STORAGE');
     },
   },
 });

@@ -83,20 +83,20 @@
   },
   "suites": [
     {
-      "title": "checkout.spec.js",
-      "file": "checkout.spec.js",
+      "title": "cart.spec.js",
+      "file": "cart.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Оформление Заказа",
-          "file": "checkout.spec.js",
+          "title": "Корзина",
+          "file": "cart.spec.js",
           "line": 3,
           "column": 6,
           "specs": [
             {
-              "title": "успешное оформление заказа с предоплатой",
+              "title": "должен удалять товар из корзины",
               "ok": true,
               "tags": [],
               "tests": [
@@ -110,25 +110,25 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 3584,
+                      "duration": 5044,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T09:29:29.200Z",
+                      "startTime": "2024-12-17T16:24:22.799Z",
                       "attachments": []
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "24e4b3ac21f7f473b7e5-3e8c4c95e4ca6aa2dcdc",
-              "file": "checkout.spec.js",
-              "line": 22,
+              "id": "ceb0bea1dd12be5aadb7-31cd4ad17b00faf555b6",
+              "file": "cart.spec.js",
+              "line": 25,
               "column": 3
             },
             {
-              "title": "проверка ошибок при незаполненной форме",
+              "title": "должен правильно отображать несколько товаров",
               "ok": true,
               "tags": [],
               "tests": [
@@ -142,25 +142,29 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 2854,
+                      "duration": 16045,
                       "errors": [],
-                      "stdout": [],
+                      "stdout": [
+                        {
+                          "text": "Названия товаров: [\n  \u001b[32m'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops'\u001b[39m,\n  \u001b[32m'Mens Casual Premium Slim Fit T-Shirts'\u001b[39m\n]\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T09:29:29.202Z",
+                      "startTime": "2024-12-17T16:24:22.798Z",
                       "attachments": []
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "24e4b3ac21f7f473b7e5-5f60b72a6febcfa93a6a",
-              "file": "checkout.spec.js",
-              "line": 66,
+              "id": "ceb0bea1dd12be5aadb7-1006c09489b8fb5f4865",
+              "file": "cart.spec.js",
+              "line": 51,
               "column": 3
             },
             {
-              "title": "успешное оформление заказа с предоплатой",
+              "title": "должен позволять оформить заказ",
               "ok": true,
               "tags": [],
               "tests": [
@@ -168,31 +172,63 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
                   "results": [
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 3263,
+                      "duration": 863,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T09:29:29.199Z",
+                      "startTime": "2024-12-17T16:24:22.799Z",
                       "attachments": []
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "24e4b3ac21f7f473b7e5-7a1ec1c2193c3a0fd820",
-              "file": "checkout.spec.js",
-              "line": 22,
+              "id": "ceb0bea1dd12be5aadb7-7e24461084aa3e38ca46",
+              "file": "cart.spec.js",
+              "line": 104,
               "column": 3
             },
             {
-              "title": "проверка ошибок при незаполненной форме",
+              "title": "должен сохранять корзину при перезагрузке страницы",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "status": "passed",
+                      "duration": 9290,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-17T16:24:22.799Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-d6480c247d465a3c98a9",
+              "file": "cart.spec.js",
+              "line": 117,
+              "column": 3
+            },
+            {
+              "title": "должен удалять товар из корзины",
               "ok": true,
               "tags": [],
               "tests": [
@@ -204,59 +240,27 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "status": "passed",
-                      "duration": 2117,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2024-12-17T09:29:29.202Z",
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "24e4b3ac21f7f473b7e5-11d2b2d64b1d3041b8d1",
-              "file": "checkout.spec.js",
-              "line": 66,
-              "column": 3
-            },
-            {
-              "title": "успешное оформление заказа с предоплатой",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
                       "workerIndex": 4,
                       "status": "passed",
-                      "duration": 3376,
+                      "duration": 7200,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T09:29:29.202Z",
+                      "startTime": "2024-12-17T16:24:22.797Z",
                       "attachments": []
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "24e4b3ac21f7f473b7e5-a175beaea7073378509c",
-              "file": "checkout.spec.js",
-              "line": 22,
+              "id": "ceb0bea1dd12be5aadb7-ddb452f43b50255420d0",
+              "file": "cart.spec.js",
+              "line": 25,
               "column": 3
             },
             {
-              "title": "проверка ошибок при незаполненной форме",
+              "title": "должен правильно отображать несколько товаров",
               "ok": true,
               "tags": [],
               "tests": [
@@ -264,27 +268,227 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
                   "results": [
                     {
                       "workerIndex": 5,
                       "status": "passed",
-                      "duration": 4570,
+                      "duration": 18014,
                       "errors": [],
-                      "stdout": [],
+                      "stdout": [
+                        {
+                          "text": "Названия товаров: [\n  \u001b[32m'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops'\u001b[39m,\n  \u001b[32m'Mens Casual Premium Slim Fit T-Shirts'\u001b[39m\n]\n"
+                        }
+                      ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T09:29:32.786Z",
+                      "startTime": "2024-12-17T16:24:24.474Z",
                       "attachments": []
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "24e4b3ac21f7f473b7e5-17058aa36fbcf84c8e0e",
-              "file": "checkout.spec.js",
-              "line": 66,
+              "id": "ceb0bea1dd12be5aadb7-80aca09affc2416643e8",
+              "file": "cart.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "должен позволять оформить заказ",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "status": "passed",
+                      "duration": 825,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-17T16:24:28.594Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-4305cb13f7fbadeb36e7",
+              "file": "cart.spec.js",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "должен сохранять корзину при перезагрузке страницы",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "status": "passed",
+                      "duration": 8006,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-17T16:24:29.847Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-89896e351b52e746e834",
+              "file": "cart.spec.js",
+              "line": 117,
+              "column": 3
+            },
+            {
+              "title": "должен удалять товар из корзины",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "status": "passed",
+                      "duration": 4855,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-17T16:24:31.326Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-011795480a1c5d4a6134",
+              "file": "cart.spec.js",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "должен правильно отображать несколько товаров",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "status": "passed",
+                      "duration": 15783,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Названия товаров: [\n  \u001b[32m'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops'\u001b[39m,\n  \u001b[32m'Mens Casual Premium Slim Fit T-Shirts'\u001b[39m\n]\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-17T16:24:32.858Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-0947df8ce371818c49d0",
+              "file": "cart.spec.js",
+              "line": 51,
+              "column": 3
+            },
+            {
+              "title": "должен позволять оформить заказ",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "status": "passed",
+                      "duration": 370,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-17T16:24:36.357Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-06ce8831a54351a1b83f",
+              "file": "cart.spec.js",
+              "line": 104,
+              "column": 3
+            },
+            {
+              "title": "должен сохранять корзину при перезагрузке страницы",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "status": "passed",
+                      "duration": 6577,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-17T16:24:36.732Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-2c7554e22b0b43c76702",
+              "file": "cart.spec.js",
+              "line": 117,
               "column": 3
             }
           ]
@@ -294,9 +498,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-12-17T09:29:23.650Z",
-    "duration": 13862.978000000001,
-    "expected": 6,
+    "startTime": "2024-12-17T16:24:17.307Z",
+    "duration": 31474.376,
+    "expected": 12,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

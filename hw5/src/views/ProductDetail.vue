@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product" class="product-container">
+  <div v-if="product" class="product-container" data-testid='product-content'>
     <img :src="product.image" :alt="product.title" class="product-image" />
     <div class="product-content">
       <h2 class="product-title">{{ product.title }}</h2>

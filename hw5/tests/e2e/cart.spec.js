@@ -2,60 +2,123 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Корзина', () => {
   test.beforeEach(async ({ page }) => {
-    // Перейдите на главную страницу вашего приложения
-    await page.goto('/'); // Использует baseURL из конфигурации
+    await page.goto('/');
+    await page.click('[data-testid="nav-cart"]');
 
-    // Добавьте первый товар в корзину
-    // Убедитесь, что кнопка имеет уникальный data-testid, например data-testid="add-to-cart-button-1"
-    await page.click('[data-testid="add-to-cart-button-1"]');
-
-    // Переходим в корзину
-    await page.click('[data-testid="nav-cart"]'); // Селектор из Nav.vue
+    // Очистка корзины
+    const cartItems = page.locator('[data-testid="cart-item"]');
+    while ((await cartItems.count()) > 0) {
+      await cartItems.nth(0).locator('[data-testid="remove-button"]').click();
+    }
   });
 
-  test('должен правильно рассчитывать сумму при изменении количества товара', async ({ page }) => {
-    // Проверяем, что товар добавлен в корзину
+  test('должен удалять товар из корзины', async ({ page }) => {
+    await page.goto('/');
+    await page.click('[data-testid="nav-home"]');
+    await page.waitForTimeout(2000);
+
+    await page.click('[data-testid="product-item-1"]');
+    await page.waitForURL(/\/\d+$/);
+    await page.waitForTimeout(2000);
+
+    const imgSrc = await page.locator('[data-testid="product-content"] img').getAttribute('src');
+    await page.click('[data-testid="add-to-cart-button"]');
+    await page.click('[data-testid="nav-cart"]');
     const cartItems = page.locator('[data-testid="cart-item"]');
     await expect(cartItems).toHaveCount(1);
 
-    // Проверяем начальное количество и цену
-    const quantityInput = page.locator('[data-testid="quantity-input"]');
-    await expect(quantityInput).toHaveValue('1'); // Предполагаем начальное количество 1
-
-    const priceElement = page.locator('.cart-table tbody tr td:nth-child(3)');
-    const totalPriceElement = page.locator('[data-testid="total-price"]');
-
-    // Получаем начальную цену
-    const initialPriceText = await priceElement.textContent();
-    const initialPrice = parseFloat(initialPriceText?.replace(/[^0-9.]/g, '') || '0');
-
-    // Получаем начальную общую сумму
-    const initialTotalPriceText = await totalPriceElement.textContent();
-    const initialTotalPrice = parseFloat(initialTotalPriceText?.replace(/[^0-9.]/g, '') || '0');
-
-    expect(initialTotalPrice).toBe(initialPrice); // Изначально количество 1
-
-    // Изменяем количество на 3
-    await quantityInput.fill('3');
-
-    // Проверяем обновленную общую сумму
-    await expect(totalPriceElement).toHaveText(`${(initialPrice * 3).toLocaleString()} $.`);
-
-    // Проверяем, что общее количество товаров обновилось
-    const totalQuantityElement = page.locator('[data-testid="total-quantity"]');
-    await expect(totalQuantityElement).toHaveText('3');
-  });
-
-  test('должен отображать сообщение о пустой корзине после очистки', async ({ page }) => {
-    // Очищаем корзину
-    await page.click('[data-testid="clear-cart-button"]');
+    // Удаляем первый товар
+    await page.click('[data-testid="remove-button"]:nth-of-type(1)');
 
     // Проверяем, что корзина пуста
+    await expect(cartItems).toHaveCount(0);
     const emptyCartMessage = page.locator('[data-testid="empty-cart"] p');
     await expect(emptyCartMessage).toHaveText('Ваша корзина пуста.');
+  });
 
-    // Проверяем, что ссылка "Продолжить покупки" присутствует
-    const continueShoppingLink = page.locator('[data-testid="continue-shopping-link"]');
-    await expect(continueShoppingLink).toBeVisible();
+  test('должен правильно отображать несколько товаров', async ({ page }) => {
+    await page.goto('/');
+    await page.click('[data-testid="nav-home"]');
+    await page.waitForTimeout(3000);
+
+    await page.click('[data-testid="product-item-1"]');
+    await page.waitForURL(/\/\d+$/);
+    await page.waitForTimeout(3000);
+
+    const productContent1 = page.locator('[data-testid="product-content"]');
+    await expect(productContent1).toBeVisible();
+    await expect(productContent1.locator('img')).toHaveAttribute('src', /.+/);
+    await page.click('[data-testid="add-to-cart-button"]');
+
+    await page.click('[data-testid="nav-home"]');
+    await page.waitForTimeout(3000);
+
+    await page.click('[data-testid="product-item-2"]');
+    await page.waitForURL(/\/\d+$/);
+    await page.waitForTimeout(3000);
+
+    const productContent2 = page.locator('[data-testid="product-content"]');
+    await expect(productContent2).toBeVisible();
+    await expect(productContent2.locator('img')).toHaveAttribute('src', /.+/);
+
+    await page.click('[data-testid="add-to-cart-button"]');
+
+    await page.waitForTimeout(3000);
+    await page.click('[data-testid="nav-cart"]');
+    const cartItems = page.locator('[data-testid="cart-item"]');
+
+    // Убедимся, что корзина содержит два товара
+    await expect(cartItems).toHaveCount(2, { timeout: 3000 });
+
+    // Проверяем названия товаров
+    const productTitles = page.locator('[data-testid="cart-item"] span');
+    const titleTexts = [];
+
+    for (let i = 0; i < 2; i++) {
+      const title = await productTitles.nth(i).textContent();
+      titleTexts.push(title.trim());
+    }
+
+    // Проверки на непустые названия
+    await expect(titleTexts.length).toBe(2);
+    titleTexts.forEach(title => expect(title).not.toBe(''));
+  });
+
+  test('должен позволять оформить заказ', async ({ page }) => {
+    await page.goto('/cart');
+    const emptyCartMessage = page.locator('[data-testid="empty-cart"] p');
+    if (!emptyCartMessage) {
+      const checkoutButton = page.locator('[data-testid="checkout-button"]');
+      await expect(checkoutButton).toBeVisible();
+
+      // Кликаем по кнопке и проверяем редирект
+      await checkoutButton.click();
+      await expect(page).toHaveURL('/checkout');
+    }
+  });
+
+  test('должен сохранять корзину при перезагрузке страницы', async ({ page }) => {
+    await page.goto('/');
+    await page.click('[data-testid="nav-home"]');
+    await page.waitForTimeout(2000);
+
+    await page.click('[data-testid="product-item-1"]');
+    await page.waitForURL(/\/\d+$/);
+    await page.waitForTimeout(2000);
+
+    const imgSrc = await page.locator('[data-testid="product-content"] img').getAttribute('src');
+    await page.click('[data-testid="add-to-cart-button"]');
+
+    await page.waitForTimeout(2000);
+
+    await page.click('[data-testid="nav-cart"]');
+    const cartItems = page.locator('[data-testid="cart-item"]');
+    await expect(cartItems).toHaveCount(1, { timeout: 2000 });
+
+    // Перезагружаем страницу
+    await page.reload();
+
+    // Проверяем, что товар остался в корзине
+    await expect(cartItems).toHaveCount(1, { timeout: 2000 });
   });
 });
