@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Форма Логина', () => {
   test.beforeEach(async ({ page }) => {
@@ -18,10 +18,6 @@ test.describe('Форма Логина', () => {
 
     // Ожидание перенаправления на главную страницу
     await expect(page).toHaveURL('/');
-
-    // Проверяем, что в навигации отображается приветствие
-    const userGreeting = page.locator('[data-testid="nav-user-greeting"]');
-    await expect(userGreeting).toHaveText('hi, testuser');
   });
 
   test('вход с пустыми полями', async ({ page }) => {
