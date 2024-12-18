@@ -55,7 +55,7 @@ test.describe('Корзина', () => {
 
     await page.click('[data-testid="product-item-2"]');
     await page.waitForURL(/\/\d+$/);
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(6000);
 
     const productContent2 = page.locator('[data-testid="product-content"]');
     await expect(productContent2).toBeVisible();

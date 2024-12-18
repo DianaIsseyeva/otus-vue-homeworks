@@ -110,12 +110,12 @@
                     {
                       "workerIndex": 0,
                       "status": "passed",
-                      "duration": 5044,
+                      "duration": 4890,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:22.799Z",
+                      "startTime": "2024-12-18T06:34:15.478Z",
                       "attachments": []
                     }
                   ],
@@ -124,7 +124,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-31cd4ad17b00faf555b6",
               "file": "cart.spec.js",
-              "line": 25,
+              "line": 15,
               "column": 3
             },
             {
@@ -142,16 +142,12 @@
                     {
                       "workerIndex": 1,
                       "status": "passed",
-                      "duration": 16045,
+                      "duration": 19670,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Названия товаров: [\n  \u001b[32m'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops'\u001b[39m,\n  \u001b[32m'Mens Casual Premium Slim Fit T-Shirts'\u001b[39m\n]\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:22.798Z",
+                      "startTime": "2024-12-18T06:34:15.476Z",
                       "attachments": []
                     }
                   ],
@@ -160,7 +156,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-1006c09489b8fb5f4865",
               "file": "cart.spec.js",
-              "line": 51,
+              "line": 39,
               "column": 3
             },
             {
@@ -178,12 +174,12 @@
                     {
                       "workerIndex": 2,
                       "status": "passed",
-                      "duration": 863,
+                      "duration": 566,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:22.799Z",
+                      "startTime": "2024-12-18T06:34:15.477Z",
                       "attachments": []
                     }
                   ],
@@ -192,7 +188,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-7e24461084aa3e38ca46",
               "file": "cart.spec.js",
-              "line": 104,
+              "line": 87,
               "column": 3
             },
             {
@@ -210,12 +206,12 @@
                     {
                       "workerIndex": 3,
                       "status": "passed",
-                      "duration": 9290,
+                      "duration": 6760,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:22.799Z",
+                      "startTime": "2024-12-18T06:34:15.477Z",
                       "attachments": []
                     }
                   ],
@@ -224,43 +220,11 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-d6480c247d465a3c98a9",
               "file": "cart.spec.js",
-              "line": 117,
+              "line": 100,
               "column": 3
             },
             {
               "title": "должен удалять товар из корзины",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "status": "passed",
-                      "duration": 7200,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2024-12-17T16:24:22.797Z",
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ceb0bea1dd12be5aadb7-ddb452f43b50255420d0",
-              "file": "cart.spec.js",
-              "line": 25,
-              "column": 3
-            },
-            {
-              "title": "должен правильно отображать несколько товаров",
               "ok": true,
               "tags": [],
               "tests": [
@@ -274,16 +238,44 @@
                     {
                       "workerIndex": 5,
                       "status": "passed",
-                      "duration": 18014,
+                      "duration": 5380,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Названия товаров: [\n  \u001b[32m'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops'\u001b[39m,\n  \u001b[32m'Mens Casual Premium Slim Fit T-Shirts'\u001b[39m\n]\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:24.474Z",
+                      "startTime": "2024-12-18T06:34:19.943Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ceb0bea1dd12be5aadb7-ddb452f43b50255420d0",
+              "file": "cart.spec.js",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "должен правильно отображать несколько товаров",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "status": "passed",
+                      "duration": 20141,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:20.288Z",
                       "attachments": []
                     }
                   ],
@@ -292,7 +284,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-80aca09affc2416643e8",
               "file": "cart.spec.js",
-              "line": 51,
+              "line": 39,
               "column": 3
             },
             {
@@ -308,14 +300,14 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 7,
                       "status": "passed",
-                      "duration": 825,
+                      "duration": 862,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:28.594Z",
+                      "startTime": "2024-12-18T06:34:21.001Z",
                       "attachments": []
                     }
                   ],
@@ -324,7 +316,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-4305cb13f7fbadeb36e7",
               "file": "cart.spec.js",
-              "line": 104,
+              "line": 87,
               "column": 3
             },
             {
@@ -340,14 +332,14 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 7,
                       "status": "passed",
-                      "duration": 8006,
+                      "duration": 6866,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:29.847Z",
+                      "startTime": "2024-12-18T06:34:22.472Z",
                       "attachments": []
                     }
                   ],
@@ -356,7 +348,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-89896e351b52e746e834",
               "file": "cart.spec.js",
-              "line": 117,
+              "line": 100,
               "column": 3
             },
             {
@@ -372,14 +364,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 9,
                       "status": "passed",
-                      "duration": 4855,
+                      "duration": 5204,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:31.326Z",
+                      "startTime": "2024-12-18T06:34:30.222Z",
                       "attachments": []
                     }
                   ],
@@ -388,7 +380,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-011795480a1c5d4a6134",
               "file": "cart.spec.js",
-              "line": 25,
+              "line": 15,
               "column": 3
             },
             {
@@ -404,18 +396,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 8,
+                      "workerIndex": 10,
                       "status": "passed",
-                      "duration": 15783,
+                      "duration": 20964,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "Названия товаров: [\n  \u001b[32m'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops'\u001b[39m,\n  \u001b[32m'Mens Casual Premium Slim Fit T-Shirts'\u001b[39m\n]\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:32.858Z",
+                      "startTime": "2024-12-18T06:34:30.311Z",
                       "attachments": []
                     }
                   ],
@@ -424,7 +412,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-0947df8ce371818c49d0",
               "file": "cart.spec.js",
-              "line": 51,
+              "line": 39,
               "column": 3
             },
             {
@@ -440,14 +428,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 11,
                       "status": "passed",
-                      "duration": 370,
+                      "duration": 450,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:36.357Z",
+                      "startTime": "2024-12-18T06:34:30.958Z",
                       "attachments": []
                     }
                   ],
@@ -456,7 +444,7 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-06ce8831a54351a1b83f",
               "file": "cart.spec.js",
-              "line": 104,
+              "line": 87,
               "column": 3
             },
             {
@@ -472,14 +460,14 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 11,
                       "status": "passed",
-                      "duration": 6577,
+                      "duration": 6716,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2024-12-17T16:24:36.732Z",
+                      "startTime": "2024-12-18T06:34:31.536Z",
                       "attachments": []
                     }
                   ],
@@ -488,7 +476,538 @@
               ],
               "id": "ceb0bea1dd12be5aadb7-2c7554e22b0b43c76702",
               "file": "cart.spec.js",
-              "line": 117,
+              "line": 100,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "checkout.spec.js",
+      "file": "checkout.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Оформление Заказа",
+          "file": "checkout.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "успешное оформление заказа с предоплатой",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "status": "passed",
+                      "duration": 3399,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:15.475Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24e4b3ac21f7f473b7e5-3e8c4c95e4ca6aa2dcdc",
+              "file": "checkout.spec.js",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "проверка ошибок при незаполненной форме",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "status": "passed",
+                      "duration": 2975,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:16.327Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24e4b3ac21f7f473b7e5-5f60b72a6febcfa93a6a",
+              "file": "checkout.spec.js",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "успешное оформление заказа с предоплатой",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "status": "passed",
+                      "duration": 5965,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:22.814Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24e4b3ac21f7f473b7e5-7a1ec1c2193c3a0fd820",
+              "file": "checkout.spec.js",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "проверка ошибок при незаполненной форме",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "status": "passed",
+                      "duration": 3120,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:25.873Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24e4b3ac21f7f473b7e5-11d2b2d64b1d3041b8d1",
+              "file": "checkout.spec.js",
+              "line": 66,
+              "column": 3
+            },
+            {
+              "title": "успешное оформление заказа с предоплатой",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "status": "passed",
+                      "duration": 3408,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:35.839Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24e4b3ac21f7f473b7e5-a175beaea7073378509c",
+              "file": "checkout.spec.js",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "проверка ошибок при незаполненной форме",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "status": "passed",
+                      "duration": 3112,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:35.626Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24e4b3ac21f7f473b7e5-17058aa36fbcf84c8e0e",
+              "file": "checkout.spec.js",
+              "line": 66,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "login.spec.js",
+      "file": "login.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Форма Логина",
+          "file": "login.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "успешный вход",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "status": "passed",
+                      "duration": 352,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:19.243Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-004027c8707ac4aa067a",
+              "file": "login.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "вход с пустыми полями",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "status": "passed",
+                      "duration": 319,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:19.310Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-39a378005edb7fd444a0",
+              "file": "login.spec.js",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "успешный вход",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "status": "passed",
+                      "duration": 676,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:29.005Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-e3f39b9911ff20a65ddf",
+              "file": "login.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "вход с пустыми полями",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "status": "passed",
+                      "duration": 400,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:29.170Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-3524d2d03a26fb2a9eaa",
+              "file": "login.spec.js",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "успешный вход",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "status": "passed",
+                      "duration": 495,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:38.265Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-bfcda05dd937a50f9d8e",
+              "file": "login.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "вход с пустыми полями",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "status": "passed",
+                      "duration": 477,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:38.749Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "badc1754af1944f68b2b-c1089b994bc375eed885",
+              "file": "login.spec.js",
+              "line": 23,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "navigation.spec.js",
+      "file": "navigation.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Навигация",
+          "file": "navigation.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "навигация между страницами",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "status": "passed",
+                      "duration": 382,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:19.599Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ce7c070a851ea64285fd-446e109055432658648d",
+              "file": "navigation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "навигация между страницами",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "status": "passed",
+                      "duration": 886,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:29.348Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ce7c070a851ea64285fd-5727298516ae6e886aee",
+              "file": "navigation.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "навигация между страницами",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "status": "passed",
+                      "duration": 549,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-12-18T06:34:38.767Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ce7c070a851ea64285fd-aebe56f21684334fac7c",
+              "file": "navigation.spec.js",
+              "line": 9,
               "column": 3
             }
           ]
@@ -498,9 +1017,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-12-17T16:24:17.307Z",
-    "duration": 31474.376,
-    "expected": 12,
+    "startTime": "2024-12-18T06:34:10.134Z",
+    "duration": 41281.028999999995,
+    "expected": 27,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
